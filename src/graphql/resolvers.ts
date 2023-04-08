@@ -1,7 +1,7 @@
 // resolver is the functionality by any code in the typeDefs
-const Recipe = require("../models/file");
+import Recipe from '../models/file';
 
-module.exports = {
+const resolvers = {
   Query: {
     async recipe(_: any, { ID }: any) {
       return await Recipe.findById(ID);
@@ -21,11 +21,13 @@ module.exports = {
       });
 
       const res = await createdRecipe.save();
-      console.log(res._doc);
+      console.log(res);
       return {
         id: res.id,
-        ...res._doc,
+        // ...res._doc,
       };
     },
   },
 };
+
+export default resolvers;
