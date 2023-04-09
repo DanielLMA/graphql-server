@@ -21,7 +21,8 @@ mongoose
   .connect(MONGODB)
   .then(() => {
     console.log('MongoDB connection successful');
-    return startStandaloneServer(server, { listen: { port: 5000 } });
+    return startStandaloneServer(server, { listen: { port: Number(process.env.PORT) || 4000 } });
+  
   })
   .then((res) => {
     console.log(`Server running at ${res.url}`);
