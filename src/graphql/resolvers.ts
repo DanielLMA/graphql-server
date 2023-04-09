@@ -10,7 +10,7 @@ const resolvers = {
       return await Recipe.find().sort({ createdAt: -1 }).limit(amount);
     },
   },
-  Mutations: {
+  Mutation: {
     async createRecipe(_, { recipeInput: { name, description } }) {
       const createdRecipe = new Recipe({
         name: name,
