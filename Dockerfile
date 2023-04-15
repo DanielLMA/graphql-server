@@ -10,5 +10,8 @@ COPY . /app
 # Install the application dependencies
 RUN npm install
 
+# Expose the port that the GraphQL server will listen on
+EXPOSE 3000
+
 # Define the entry point for the container
 CMD ["npm", "start"]
